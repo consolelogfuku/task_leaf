@@ -22,9 +22,13 @@ class TasksController < ApplicationController
   end
 
   def create
-    task = Task.new(task_params) 
-    task.save!
-    redirect_to tasks_path, notice: "タスク「#{task.name}」を登録しました。" #tasks_urlをtasks_pathに変えてみた
+    @task = Task.new(task_params) 
+
+    if @task.save
+      redirect_to @task, notice: "タスク「#{@task.name}」を登録しました。" #tasks_urlをtasks_pathに変えてみた
+    else
+      render :new
+    end
   end
 
   def destroy
