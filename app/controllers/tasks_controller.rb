@@ -23,7 +23,7 @@ class TasksController < ApplicationController
     @task = current_user.tasks.new(task_params)
 
     if @task.save
-      redirect_to @task, notice: "タスク「#{@task.name}」を登録しました。" #tasks_urlをtasks_pathに変えてみた
+      redirect_to @task, notice: "タスク「#{@task.name}」を登録しました。" #tasks_urlをtasks_pathに変えた
     else
       render :new
     end
