@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    reset_sessiom
+    reset_session
     redirect_to root_url, notice: "ログアウトしました"
   end
 
