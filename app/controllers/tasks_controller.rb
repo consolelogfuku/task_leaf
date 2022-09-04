@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  
   def index
     @tasks = current_user.tasks.recent
   end
@@ -20,8 +21,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = current_user.tasks.new(task_params)
-
+    @task = current_user.tasks.new(task_params) 
     if @task.save
       redirect_to @task, notice: "タスク「#{@task.name}」を登録しました。" #tasks_urlをtasks_pathに変えた
     else
